@@ -20,5 +20,68 @@ public class InterpretDrawingFile {
 		File f = new File(chooser.getSelectedFile().getPath());
 		Scanner in = new Scanner(f); //making Scanner with a File
 		
+		String shapeType = in.next();
+		
+		if (shapeType.equals("rectangle")) {
+			
+			int redComponent = in.nextInt();
+			int greenComponent = in.nextInt();
+			int blueComponent = in.nextInt();
+			boolean isFilled = in.nextBoolean();
+			double parameterOne = in.nextDouble();
+			double parameterTwo = in.nextDouble();
+			double parameterThree = in.nextDouble();
+			double parameterFour = in.nextDouble();
+			
+			if (isFilled) {
+				StdDraw.setPenColor(redComponent, greenComponent, blueComponent);
+				StdDraw.filledRectangle(parameterOne, parameterTwo, parameterThree, parameterFour);			
+			} else {
+				StdDraw.setPenColor(redComponent, greenComponent, blueComponent);
+				StdDraw.rectangle(parameterOne, parameterTwo, parameterThree, parameterFour);		
+			}
+
+		} else if (shapeType.equals("ellipse")) {
+			
+			int redComponent = in.nextInt();
+			int greenComponent = in.nextInt();
+			int blueComponent = in.nextInt();
+			boolean isFilled = in.nextBoolean();
+			double parameterOne = in.nextDouble();
+			double parameterTwo = in.nextDouble();
+			double parameterThree = in.nextDouble();
+			double parameterFour = in.nextDouble();
+			
+			if (isFilled) {
+				StdDraw.setPenColor(redComponent, greenComponent, blueComponent);
+				StdDraw.filledEllipse(parameterOne, parameterTwo, parameterThree, parameterFour);
+			} else {
+				StdDraw.setPenColor(redComponent, greenComponent, blueComponent);
+				StdDraw.ellipse(parameterOne, parameterTwo, parameterThree, parameterFour);	
+			}
+		} else {
+			int redComponent = in.nextInt();
+			int greenComponent = in.nextInt();
+			int blueComponent = in.nextInt();
+			boolean isFilled = in.nextBoolean();
+			double parameterOne = in.nextDouble();
+			double parameterTwo = in.nextDouble();
+			double parameterThree = in.nextDouble();
+			double parameterFour = in.nextDouble();
+			double parameterFive = in.nextDouble();
+			double parameterSix = in.nextDouble();
+			
+			double[] x = {parameterOne, parameterThree, parameterFive};
+			double[] y = {parameterTwo, parameterFour, parameterSix};
+			
+			if (isFilled) {
+				StdDraw.setPenColor(redComponent, greenComponent, blueComponent);
+				StdDraw.filledPolygon(x, y);
+			} else {
+				StdDraw.setPenColor(redComponent, greenComponent, blueComponent);
+				StdDraw.polygon(x, y);
+			}
+		}
+
 	}
 }
